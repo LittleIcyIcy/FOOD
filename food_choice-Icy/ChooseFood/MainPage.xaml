@@ -1,0 +1,124 @@
+﻿<Page
+    x:Class="ChooseFood.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ChooseFood"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding MainPageViewModel,Source={StaticResource ViewModelLocator}}"
+    >
+    <NavigationView IsSettingsVisible="False">
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="今日推荐"
+                                x:Name="MenuPage1"
+                                Icon="Play"
+                                FontSize="18"/>
+            <NavigationViewItem Content="自行添加"
+                                x:Name="MenuPage2"
+                                Icon="Refresh"
+                                FontSize="18"/>
+            <NavigationViewItem Content="历史记录"
+                                x:Name="MenuPage3"
+                                Icon="CalendarDay"
+                                FontSize="18"/>
+            <NavigationViewItem Icon="PreView"
+                                x:Name="MenuPage4"
+                                Content="预览菜单"
+                                FontSize="18"/>
+            <NavigationViewItem Content="设置"
+                                x:Name="MenuPage5"
+                                Icon="Setting"
+                                FontSize="18"/>
+        </NavigationView.MenuItems>
+        <NavigationView.PaneFooter >
+            <RelativePanel>
+                <PersonPicture x:Name="WeatherPicture"
+                               MaxHeight="50"
+                               MaxWidth="50"
+                               ProfilePicture="Assets/StoreLogo.png" />
+                <TextBlock Text="{Binding Temperature,Mode=TwoWay}"
+                           MaxHeight="50"
+                           x:Name="tempratrue"
+                           RelativePanel.RightOf="WeatherPicture"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Bottom"
+                           Margin="10,0,58,-35"
+                           FontSize="20" 
+                           Width="51"/>
+                <TextBlock Text="{Binding Humidity}"
+                           MaxHeight="50"
+                           Width="51"
+                           x:Name="humidity"
+                           RelativePanel.RightOf="tempratrue"
+                           VerticalAlignment="Bottom"
+                           Margin="-40,0,0,-35"
+                           FontSize="20"/>
+                <TextBlock Text="{Binding Site}"
+                           MaxHeight="50"
+                           Width="51"
+                           x:Name="Site"
+                           RelativePanel.RightOf="humidity"
+                           VerticalAlignment="Bottom"
+                           Margin="20,0,0,-35"
+                           FontSize="20"/>
+                <Button Width="40"
+                        Height="30"
+                        Content="Click"
+                        RelativePanel.RightOf="Site"
+                        VerticalAlignment="Bottom"
+                        Margin="10,0,0,-40"
+                        Command="{Binding RefreshCommand}"/>
+            </RelativePanel>
+        </NavigationView.PaneFooter>
+        <NavigationView.Header >
+            今天吃点啥
+        </NavigationView.Header>
+        <ScrollViewer >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="90"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="今日推荐"
+                           FontSize="18"
+                           HorizontalAlignment="Center"/>
+                <ListView Grid.Row="1"
+                          Width="900"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Center"
+                          ItemsSource="{Binding FoodNameCollection}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <RelativePanel>
+                                <TextBlock Text="{Binding name,Mode=OneWay}"
+                                           x:Name="NameBlock"/>
+                                <TextBlock Text="{Binding }"
+                                           x:Name="ElementBlock"
+                                           RelativePanel.RightOf="NameBlock"/>
+                                <Button >
+                                    <Image Source =" "/>
+                                </Button>
+                                <Button>
+                                    <Image Source=" "/>
+                                </Button>
+                            </RelativePanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Grid.Row="2"
+                        HorizontalAlignment="Center"
+                        Width="55"
+                        Height="60"
+                        FontSize="25"
+                        Command="{Binding RecommendationCommand}"
+                        >
+                    <Image Source="Assets/refresh.png" 
+                           Margin="-24,-6,-29,-7"/>
+                </Button>
+            </Grid>
+        </ScrollViewer>
+    </NavigationView>
+</Page>
