@@ -91,7 +91,7 @@ namespace FoodLibrary.ViewModels
             }));
 
         /// <summary>
-        /// 所推荐的菜品的名称列表。
+        /// 获得所推荐的菜品的名称列表。
         /// </summary>
         public RelayCommand RecommendationCommand =>
             _recommendationCommand ?? (_recommendationCommand

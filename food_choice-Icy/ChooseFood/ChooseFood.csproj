@@ -126,6 +126,15 @@
     <Compile Include="Services\Impl\LoadJsonService.cs" />
     <Compile Include="Services\Impl\LocationService.cs" />
     <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="View\MenuPage2.xaml.cs">
+      <DependentUpon>MenuPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuPage3.xaml.cs">
+      <DependentUpon>MenuPage3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuPage4.xaml.cs">
+      <DependentUpon>MenuPage4.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -171,6 +180,18 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MenuPage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MenuPage3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MenuPage4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="ChooseFood.View.MenuPage3"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ChooseFood.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding MenuPage3ViewModel,Source={StaticResource ViewModelLocator}}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                   Text="菜谱"
+                   FontSize ="67"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+        <ListView Grid.Row="1"
+                  ItemsSource="{Binding AllFoodInformationsCommand}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <RelativePanel>
+                        <TextBlock Text="{Binding name}"/>
+                    </RelativePanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="2"
+                Command="{Binding ShowAllFoodInformationsCommand}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
+    </Grid>
+</Page>
