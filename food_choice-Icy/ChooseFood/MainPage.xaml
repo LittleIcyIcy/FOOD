@@ -9,26 +9,24 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     DataContext="{Binding MainPageViewModel,Source={StaticResource ViewModelLocator}}"
     >
-    <NavigationView IsSettingsVisible="False"
-                    x:Name="nvSample">
+    <NavigationView IsSettingsVisible="False">
         <NavigationView.MenuItems>
             <NavigationViewItem Content="今日推荐"
-                                x:Name="MenuPage1"
+                                Tag="MenuPage1"
                                 Icon="Play"
                                 FontSize="18"/>
             <NavigationViewItem Content="历史记录"
-                                x:Name="MenuPage2"
+                                Tag="MenuPage2"
                                 Icon="CalendarDay"
                                 FontSize="18"/>
             <NavigationViewItem Icon="PreView"
-                                x:Name="MenuPage3"
+                                Tag="MenuPage3"
                                 Content="预览菜单"
                                 FontSize="18"/>
             <NavigationViewItem Content="设置"
-                                x:Name="MenuPage4"
+                                Tag="MenuPage4"
                                 Icon="Setting"
                                 FontSize="18"/>
-            <Frame x:Name="contentFrame"/>
         </NavigationView.MenuItems>
         <NavigationView.PaneFooter >
             <RelativePanel>
@@ -70,7 +68,7 @@
                         Command="{Binding RefreshCommand}"/>
             </RelativePanel>
         </NavigationView.PaneFooter>
-        <NavigationView.Header>
+        <NavigationView.Header >
             今天吃点啥
         </NavigationView.Header>
         <ScrollViewer >
