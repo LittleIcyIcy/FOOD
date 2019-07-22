@@ -9,7 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     DataContext="{Binding MainPageViewModel,Source={StaticResource ViewModelLocator}}"
     >
-    <NavigationView IsSettingsVisible="False">
+    <NavigationView IsSettingsVisible="False"
+                    ItemInvoked="NavigationView_OnItemInvoked">
         <NavigationView.MenuItems>
             <NavigationViewItem Content="今日推荐"
                                 Tag="MenuPage1"
@@ -27,6 +28,8 @@
                                 Tag="MenuPage4"
                                 Icon="Setting"
                                 FontSize="18"/>
+
+            <Frame x:Name="FrameContent"/>
         </NavigationView.MenuItems>
         <NavigationView.PaneFooter >
             <RelativePanel>
